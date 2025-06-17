@@ -1,8 +1,8 @@
-package day6;
+package week1;
 
 import java.util.Scanner;
 
-public class SumOfEvenPlaced {
+public class SumOddPlaceEvenDigits {
 	
 	private static int inputNumber;
 	private static int sumOfEvenDigits;
@@ -10,11 +10,10 @@ public class SumOfEvenPlaced {
 	public static void findSumOfEvenPlacedDigits() {
 		int tempNumber = inputNumber;
 		int noOfDigits = (int)Math.log10(tempNumber)+1;
-		System.out.println(noOfDigits);
 		while(tempNumber > 0) {
 			int remainder = tempNumber % 10;
 			tempNumber = tempNumber / 10;
-			if(noOfDigits % 2 == 0) {
+			if(noOfDigits % 2 == 1 && remainder % 2 == 0) {
 				sumOfEvenDigits += remainder;
 			}
 			noOfDigits--;
@@ -23,10 +22,10 @@ public class SumOfEvenPlaced {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter a number to add even placed digits");
+		System.out.println("Enter a number to add odd placed even digits");
 		inputNumber = scanner.nextInt();
 		findSumOfEvenPlacedDigits();
-		System.out.println("Sum of Odd digits in a " + inputNumber + " is " + sumOfEvenDigits);
+		System.out.println("Sum of Odd placed even digits in a " + inputNumber + " is " + sumOfEvenDigits);
 		
 	}
 
